@@ -1,9 +1,10 @@
+HTML
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Tham Quan Hệ Sinh Thái Biển 360°</title>
+    <title>Tham Quan Cảnh Hoàng Hôn Buông Đẹp Ngất Ngây 360°</title>
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
     <style>
         body { margin: 0; overflow: hidden; font-family: sans-serif; }
@@ -15,7 +16,7 @@
             transform: translateX(-50%);
             z-index: 9999;
             padding: 15px 30px;
-            background-color: #0077b6;
+            background-color: #e65c00; /* Thay đổi màu cam hoàng hôn cho phù hợp */
             color: white;
             border: none;
             border-radius: 30px;
@@ -44,8 +45,8 @@
 
     <a-scene loading-screen="enabled: false">
         <a-assets>
-            <video id="underwater-video" 
-                   src="7900865714102.mp4" 
+            <video id="sunset-video" 
+                   src="YTSave_YouTube_Video-4k-Ultra-Canh-Hoang-Hon-Buong-Dep-_Media_7uay0tpKFkQ_003_480p.mp4" 
                    preload="auto"
                    loop="true" 
                    crossorigin="anonymous" 
@@ -56,12 +57,12 @@
 
         <a-entity camera look-controls="magicWindowTrackingEnabled: true; touchEnabled: true"></a-entity>
 
-        <a-videosphere src="#underwater-video" rotation="0 -90 0"></a-videosphere>
+        <a-videosphere src="#sunset-video" rotation="0 -90 0"></a-videosphere>
     </a-scene>
 
     <script>
         const playButton = document.getElementById('vr-btn');
-        const videoElement = document.getElementById('underwater-video');
+        const videoElement = document.getElementById('sunset-video');
 
         playButton.addEventListener('click', function() {
             // Phát video (vượt qua tính năng chặn tự động phát của trình duyệt)
@@ -72,10 +73,11 @@
             // Yêu cầu quyền cảm biến chuyển động đối với iPhone (iOS 13 trở lên)
             if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
                 DeviceOrientationEvent.requestPermission()
-                    .then(permissionState => {
-                        if (permissionState === 'granted') {playButton.style.display = 'none'; // Cấp quyền thành công, ẩn nút
+                .then(permissionState => {
+                        if (permissionState === 'granted') {
+                            playButton.style.display = 'none'; // Cấp quyền thành công, ẩn nút
                         } else {
-                            alert('Bạn cần cho phép quyền cảm biến chuyển động để xoay được góc nhìn đại dương!');
+                            alert('Bạn cần cho phép quyền cảm biến chuyển động để xoay được góc nhìn hoàng hôn!');
                         }
                     })
                     .catch(console.error);
